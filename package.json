@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "SKD for Chainway/Terra devices with an intergrated Barcode Scanner",
   "main": "build/index.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/limegorilla/chainway-terra-pdk-sdk/blob/master/LICENSE"
+    }
+  ],
   "types": "build/index.d.ts",
   "scripts": {
     "build": "expo-module build",
