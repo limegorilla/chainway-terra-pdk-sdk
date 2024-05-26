@@ -28,11 +28,12 @@
   "author": "Liam Doyle <liamdoyle@limegorilla.co.uk> (https://github.com/limegorilla)",
   "license": "MIT",
   "homepage": "https://github.com/limegorilla/chainway-terra-pdk-sdk#readme",
-  "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.0.25",
+    "add": "^2.0.6",
     "expo-module-scripts": "^3.5.1",
-    "expo-modules-core": "^1.12.9"
+    "expo-modules-core": "^1.12.9",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "expo": "*",

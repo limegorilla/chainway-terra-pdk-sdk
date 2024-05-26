@@ -41,3 +41,12 @@ android {
     abortOnError false
   }
 }
+
+repositories {
+  flatDir {
+      dirs 'libs'  }
+  }
+
+dependencies {
+  implementation files("./libs/DeviceAPI_ver20231208_release.aar")
+}
