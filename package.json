@@ -32,6 +32,7 @@
     "url": "https://github.com/limegorilla/chainway-terra-pdk-sdk/issues"
   },
   "author": "Liam Doyle <liamdoyle@limegorilla.co.uk> (https://github.com/limegorilla)",
+  "license": "MIT",
   "homepage": "https://github.com/limegorilla/chainway-terra-pdk-sdk#readme",
   "devDependencies": {
     "@types/react": "^18.0.25",
