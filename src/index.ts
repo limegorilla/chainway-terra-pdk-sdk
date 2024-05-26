@@ -4,7 +4,6 @@ import { EventEmitter, Subscription } from "expo-modules-core";
 // and on native platforms to ChainwayTerraPdkSdk.ts
 import { BarcodeScannedEventPayload, ChangeEventPayload } from "./ChainwayTerraPdkSdk.types";
 import ChainwayTerraPdkSdkModule from "./ChainwayTerraPdkSdkModule";
-import ChainwayTerraPdkSdkView from "./ChainwayTerraPdkSdkView";
 
 export function hello(): string {
   return ChainwayTerraPdkSdkModule.hello();
@@ -38,4 +37,4 @@ export function addBarcodeScanFailListener(
   return emitter.addListener("eventBarcodeScanFail", listener);
 }
 
-export { ChainwayTerraPdkSdkView, ChangeEventPayload };
+export { ChangeEventPayload, BarcodeScannedEventPayload };
