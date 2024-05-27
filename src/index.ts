@@ -2,7 +2,10 @@ import { EventEmitter, Subscription } from "expo-modules-core";
 
 // Import the native module. On web, it will be resolved to ChainwayTerraPdkSdk.web.ts
 // and on native platforms to ChainwayTerraPdkSdk.ts
-import { BarcodeScannedEventPayload, ChangeEventPayload } from "./ChainwayTerraPdkSdk.types";
+import {
+  BarcodeScannedEventPayload,
+  ChangeEventPayload,
+} from "./ChainwayTerraPdkSdk.types";
 import ChainwayTerraPdkSdkModule from "./ChainwayTerraPdkSdkModule";
 
 export function hello(): string {
