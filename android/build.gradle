@@ -42,11 +42,4 @@ android {
   }
 }
 
-repositories {
-  flatDir {
-      dirs 'libs'  }
-  }
-
-dependencies {
-  implementation files("./libs/DeviceAPI_ver20231208_release.aar")
-}
+implementation(name: 'DeviceAPI_ver20231208_release', ext: 'aar')
