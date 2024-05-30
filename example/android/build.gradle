@@ -34,6 +34,11 @@ allprojects {
             url(new File(['node', '--print', "require.resolve('jsc-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), '../dist'))
         }
 
+        // Adds in AAR to example app
+        flatDir { dirs "$rootDir/../../android/libs" } 
+        // DO NOT USE THIS IN PRODUCTION
+        // The ./injectDependencyFile.js script will add the dependency to the build.gradle file (expo)
+
         google()
         mavenCentral()
         maven { url 'https://www.jitpack.io' }

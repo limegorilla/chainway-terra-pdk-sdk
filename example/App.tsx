@@ -4,6 +4,9 @@ import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
   const [text, setText] = useState("Hello World");
+  const [scannerStatus, setScannerStatus] = useState(
+    ChainwayTerraPdkSdk.isScannerReady(),
+  );
 
   useEffect(() => {
     ChainwayTerraPdkSdk.addBarcodeScannedListener((event) => {
@@ -22,19 +25,22 @@ export default function App() {
     ChainwayTerraPdkSdk.scanBarcode();
   };
 
-
-
   const handleStartScanner = () => {
     ChainwayTerraPdkSdk.prepareScanner();
+    setScannerStatus(ChainwayTerraPdkSdk.isScannerReady());
   };
 
-
+  const isScanner = () => {
+    ChainwayTerraPdkSdk.isPhysicalScanner();
+  };
 
   return (
     <View style={styles.container}>
       <Text>{text}</Text>
       <Button title="Run Scan" onPress={useBarcodeScanner} />
       <Button title="Prepare Scanner" onPress={handleStartScanner} />
+      <Button title="is Scanner" onPress={isScanner} />
+      <Text>{scannerStatus ? "Scanner is ready" : "Scanner is not ready"}</Text>
     </View>
   );
 }

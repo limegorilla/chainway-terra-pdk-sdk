@@ -8,10 +8,6 @@ import {
 } from "./ChainwayTerraPdkSdk.types";
 import ChainwayTerraPdkSdkModule from "./ChainwayTerraPdkSdkModule";
 
-export function hello(): string {
-  return ChainwayTerraPdkSdkModule.hello();
-}
-
 export async function scanBarcode(): Promise<void> {
   return await ChainwayTerraPdkSdkModule.scanBarcode();
 }
@@ -20,13 +16,15 @@ export function prepareScanner(): Promise<void> {
   return ChainwayTerraPdkSdkModule.prepareScanner();
 }
 
-const emitter = new EventEmitter(ChainwayTerraPdkSdkModule);
-
-export function addChangeListener(
-  listener: (event: ChangeEventPayload) => void,
-): Subscription {
-  return emitter.addListener<ChangeEventPayload>("onChange", listener);
+export function isPhysicalScanner(): () => void {
+  return ChainwayTerraPdkSdkModule.isPhysicalScanner();
 }
+
+export function isScannerReady(): () => boolean {
+  return ChainwayTerraPdkSdkModule.isScannerReady();
+}
+
+const emitter = new EventEmitter(ChainwayTerraPdkSdkModule);
 
 export function addBarcodeScannedListener(
   listener: (event: BarcodeScannedEventPayload) => void,

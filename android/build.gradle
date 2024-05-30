@@ -41,5 +41,12 @@ android {
     abortOnError false
   }
 }
+repositories {
+  flatDir {
+    dirs 'libs'  }
+}
 
-implementation(name: 'DeviceAPI_ver20231208_release', ext: 'aar')
+dependencies {
+  implementation(name: 'DeviceAPI_ver20231208_release', ext: 'aar')
+
+}
