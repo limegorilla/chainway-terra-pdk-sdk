@@ -8,18 +8,16 @@ import com.rscja.barcode.BarcodeFactory
 import com.rscja.barcode.BarcodeUtility
 import com.rscja.CWDeviceInfo
 import com.rscja.scanner.utility.ScannerUtility
-import com.rscja.scanner.led.ScanLedManage
-import com.rscja.scanner.led.ScanLed
 import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
-import kotlinx.coroutines.awaitAll
 
 
 // Events
 private var bcScanSuccess = "eventBarcodeScanSuccess"
 private var bcScanFail = "eventBarcodeScanFail"
 private var bcScanReady = "eventBarcodeScanScannerReady"
+
 
 class ChainwayTerraPdkSdkModule : Module() {
 
@@ -29,9 +27,7 @@ class ChainwayTerraPdkSdkModule : Module() {
     // Variables
     private var barcodeDecoder: BarcodeDecoder = BarcodeFactory.getInstance().barcodeDecoder
     private var deviceInfo = CWDeviceInfo.getDeviceInfo()
-    private var scanner = ScannerUtility.getScannerInerface()
-    private var scanLed: ScanLed = ScanLedManage.getInstance().scanLed
-
+    private var scannerUtility: ScannerUtility = ScannerUtility.getScannerInerface()
 
     // Each module class must implement the definition function. The definition consists of components
     // that describes the module's functionality and behavior.
@@ -49,14 +45,16 @@ class ChainwayTerraPdkSdkModule : Module() {
             }
             barcodeDecoder.open(context)
 
-//            Init the LED
-           scanLed.init(context)
 //    Set the scanner to desired settings
 //    In future these should be configurable by the device's user
             BarcodeUtility.getInstance().enableEnter(context, true)
             BarcodeUtility.getInstance().enablePlayFailureSound(context, true)
             BarcodeUtility.getInstance().enablePlaySuccessSound(context, true)
             BarcodeUtility.getInstance().enableVibrate(context, true)
+
+            scannerUtility.enableAuxiliaryLight(context, true)
+            scannerUtility.enableFunction(context, 1)
+
 
 //    These should be hardcoded as we do not support these methods of entry
             BarcodeUtility.getInstance().closeKeyboardHelper(context)

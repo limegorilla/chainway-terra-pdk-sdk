@@ -1,6 +1,6 @@
 {
   "name": "chainway-terra-pdk-sdk",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "SKD for Chainway/Terra devices with an intergrated Barcode Scanner",
   "main": "build/index.js",
   "licenses": [
